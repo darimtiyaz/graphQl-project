@@ -1,0 +1,99 @@
+1. query getAllUsers{
+   users{
+    id
+    firstName
+    lastName
+    email
+  }
+}
+
+2. query getAllQuotes{
+   quotes{
+    name
+    by
+  }
+}
+
+3. query getUserById{
+   user(id:"23131"){
+    id
+    firstName
+    lastName
+    email
+  }
+}
+
+4. query getUserById($userId:ID!){
+  user(id:$userId){
+    id
+    firstName
+    lastName
+    email
+  }
+}
+
+5. query getQuoteByUser{
+   iquote(by:"4232"){
+    by
+    name
+  }
+}
+
+6. query getQuoteByUser($quoteBy:ID!){
+   iquote(by:$quoteBy){
+    by
+    name
+  }
+}
+
+7. mutation createUser($userNew:UserInput!){
+   user:signupUserDummy(userNew:$userNew){ 
+    _id
+    email
+    firstName
+    lastName
+  }
+}
+{
+  "userNew": {
+    "firstName": "navin",
+    "lastName": "ssd",
+    "email": "sdsad@sd.com",
+    "password": "12345"
+  }
+}
+
+8. mutation createUser($userNew:UserInput!){
+  user:signupUser(userNew:$userNew){ 
+    _id
+    email
+    firstName
+    lastName
+  }
+}
+
+{
+  "userNew": {
+    "firstName": "navin",
+    "lastName": "sharma",
+    "email": "navin@navin.com",
+    "password": "12345"
+  }
+}
+
+9. mutation SigninUser($userSignin:UserSigninInput!){
+  user:signinUser(userSignin:$userSignin){ 
+    token
+  }
+}
+
+{
+  "userSignin": {
+    "email": "navin@navin.com",
+    "password": "12345"
+  }
+}
+
+10. mutation createQuote{
+  quote:createQuote(name:"i am another nice quote")
+}
